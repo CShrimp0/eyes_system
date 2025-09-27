@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>眼科临床训练系统 - 首页</title>
+    <style>
+        body {
+            background: #f8eaea;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-container {
+            width: 600px;
+            margin: 100px auto 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(183,28,28,0.10);
+            padding: 48px 40px 36px 40px;
+            position: relative;
+        }
+        .logo-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .logo {
+            width: 448px;
+            max-width: 90%;
+            height: auto;
+            display: block;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            background: #b71c1c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 22px;
+            font-size: 15px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        h1 {
+            text-align: center;
+            color: #b71c1c;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #b71c1c;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        .welcome {
+            text-align: center;
+            color: #b71c1c;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .btn {
+            flex: 1;
+            margin: 0 8px;
+            padding: 16px 0;
+            background: #b71c1c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #a31515;
+        }
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body style="position:relative;">
+    <form method="post" action="/logout/">
+        {% csrf_token %}
+        <button class="logout-btn" type="submit">退出登录</button>
+    </form>
+    <div class="main-container">
+        <div class="logo-box">
+            <img src="{% static 'logo.png' %}" class="logo" alt="深圳大学总医院Logo">
+        </div>
+        <h1>眼科临床训练系统</h1>
+        <div class="subtitle">深圳大学总医院 & 208实验室</div>
+        <div class="welcome">欢迎，{{ request.user.username }}！</div>
+        <div class="btn-group">
+            <form method="get" action="{% url 'case_select' %}" style="flex:1;margin:0 8px;">
+                <button class="btn" type="submit" style="width:100%;height:56px;">开始练习</button>
+            </form>
+            <button class="btn" style="height:56px;" onclick="alert('功能开发中')">模拟考试</button>
+            <button class="btn" style="height:56px;" onclick="alert('功能开发中')">案例管理</button>
+        </div>
+        <div class="footer">&copy; 2025 深圳大学总医院 | 深圳大学</div>
+    </div>
+</body>
+</html>

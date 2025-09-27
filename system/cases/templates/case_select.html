@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>案例选择 - 眼科临床训练系统</title>
+    <style>
+        body {
+            background: #f8eaea;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-container {
+            width: 500px;
+            margin: 100px auto 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(183,28,28,0.10);
+            padding: 48px 40px 36px 40px;
+            position: relative;
+        }
+        .logo-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .logo {
+            width: 320px;
+            max-width: 90%;
+            height: auto;
+            display: block;
+        }
+        h2 {
+            text-align: center;
+            color: #b71c1c;
+            margin-bottom: 30px;
+        }
+        .case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        .case-btn {
+            width: 220px;
+            padding: 16px 0;
+            background: #b71c1c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .case-btn:hover {
+            background: #a31515;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo-box">
+            <img src="{% static 'logo.png' %}" class="logo" alt="深圳大学总医院Logo">
+        </div>
+        <h2>请选择一个案例进行练习</h2>
+        <div class="case-list">
+            <form method="get" action="#">
+                <button class="case-btn" type="submit" name="case" value="1">案例 1</button>
+            </form>
+            <form method="get" action="#">
+                <button class="case-btn" type="submit" name="case" value="2">案例 2</button>
+            </form>
+            <form method="get" action="#">
+                <button class="case-btn" type="submit" name="case" value="3">案例 3</button>
+            </form>
+        </div>
+        <div style="text-align:center;margin-top:32px;">
+            <a href="/" style="display:inline-block;padding:10px 32px;background:#b71c1c;color:#fff;border-radius:6px;text-decoration:none;font-size:17px;">返回上级</a>
+        </div>
+    </div>
+</body>
+</html>

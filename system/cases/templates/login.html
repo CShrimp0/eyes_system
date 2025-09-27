@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>登录 - 眼科临床训练系统</title>
+    <style>
+        body {
+            background: #f8eaea;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .login-container {
+            width: 350px;
+            margin: 80px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 40px 30px 30px 30px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 560px;
+        }
+        h2 {
+            text-align: center;
+            color: #b71c1c;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #d0d0d0;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #b71c1c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .error {
+            color: #d32f2f;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div style="display:flex;justify-content:center;align-items:center;margin-bottom:18px;">
+            <img src="{% static 'logo.png' %}" class="logo" alt="深圳大学总医院Logo" style="width:448px;max-width:90%;height:auto;display:block;">
+        </div>
+        <h2 style="color:#b71c1c;text-align:center;margin-bottom:10px;">眼科临床训练系统</h2>
+        <div class="subtitle" style="color:#b71c1c;">深圳大学总医院 & 208实验室</div>
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="学号/账号" required autofocus>
+            <input type="password" name="password" placeholder="密码" required>
+            <button type="submit">登录</button>
+        </form>
+        <div class="footer">&copy; 2025 深圳大学总医院 | 深圳大学</div>
+    </div>
+</body>
+</html>

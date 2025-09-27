@@ -1,0 +1,27 @@
+/*
+自定义 Django 管理后台主题色为深红色
+*/
+:root {
+    --primary: #b71c1c !important;
+    --secondary: #f8eaea !important;
+}
+
+body.login, .module caption, .module h2, .module th, .module caption, .breadcrumbs, .object-tools a, .object-tools a:visited {
+    background-color: #b71c1c !important;
+    color: #fff !important;
+}
+
+#header, #user-tools, .module caption, .module h2, .object-tools a, .object-tools a:visited {
+    background-color: #b71c1c !important;
+    color: #fff !important;
+}
+
+button, input[type=submit], .button {
+    background: #b71c1c !important;
+    border-color: #b71c1c !important;
+}
+
+.login .submit-row input {
+    background: #b71c1c !important;
+    border-color: #b71c1c !important;
+}
